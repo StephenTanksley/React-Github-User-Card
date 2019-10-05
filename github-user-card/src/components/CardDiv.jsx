@@ -2,9 +2,9 @@ import React from 'react'
 import Card from './Card'
 
 class CardDiv extends React.Component {
-    constructor() {
-    super()
-    // console.log('CardDiv', this.props)
+    constructor() { //If I want to pass props, I need the constructor.
+    super() // If I want to receive props, I need super.
+
     
     }
     render(props) {

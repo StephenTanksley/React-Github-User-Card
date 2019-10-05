@@ -8,9 +8,13 @@ class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      user: {}
+      data: {},
+      user: ''
     }
   }
+
+  //I want data to be the object I get back from the API.name
+  //I want user to be the name someone plugs in to the UserInput component to start an API call.
 
   //It's okay to call the API inside componentDidMount because it is called just one time. 
   componentDidMount() {
@@ -35,16 +39,10 @@ class App extends React.Component {
   fetchUser = () => {
     axios.get(`https://api.github.com/users/StephenTanksley`)
       .then(res => {
-
-        const info = res.data
-        this.setState={
-          user: res.data
-        }
-        // const info = res.data
-        // this.setState = {
-        //   user: {info}
-        // }
+        this.setState({data: res.data})
+      const info = res.data
       console.log(info)
+      console.log(this.state)
       })
       .catch(err => {
         console.log(err)
@@ -55,7 +53,9 @@ class App extends React.Component {
   render() {
     
     return (
+      
       <div className="App">
+        {console.log(this.state)}
         <h1> Github User Cards </h1>
 
         {/* <UserInput /> */}
