@@ -27,3 +27,8 @@
 .user-headshot {
   border-radius: .5rem;
 }
+
+.thumbnail {
+  display: flex;
+  width: 3.5rem;
+}

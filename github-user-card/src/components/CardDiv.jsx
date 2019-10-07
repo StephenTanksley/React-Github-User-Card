@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios';
 import Container from './styled'
+import Card from './Card'
 
 
 class CardDiv extends React.Component {
@@ -107,6 +108,12 @@ class CardDiv extends React.Component {
                 <p> Bio: {this.state.data.bio} </p>
                
             </div>
+
+           
+            </Container>
+            <Container>
+                <Card />
+                
             </Container>
         </>
         )
