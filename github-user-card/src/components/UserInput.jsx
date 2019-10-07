@@ -12,11 +12,10 @@ class UserInput extends React.Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} onChange={this.handleChange}>
         <input
           type="text"
           value={this.state.value}
-          onChange={this.handleChange}
         />
         <button>Add</button>
       </form>
