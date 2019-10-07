@@ -8,24 +8,7 @@ class UserInput extends React.Component {
     }
   }
 
-  handleChange = (e) => {
-    this.setState({
-      value: e.target.value
-    })
-  }
 
-  handleSubmit = (e) => {
-    e.preventDefault()
-
-    // call the setter function with the new value.
-    // function is given to us through props in the parent component.
-    this.props.addUser(e, this.state.value)
-
-    // reset the input field so we can add other items
-    this.setState({
-      value: ""
-    })
-  }
 
   render() {
     return (

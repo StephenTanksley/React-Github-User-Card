@@ -1,53 +1,15 @@
 import React from 'react';
-import axios from 'axios';
-// import UserInput from './components/UserInput'
 import CardDiv from './components/CardDiv'
 import './App.css';
 
 class App extends React.Component {
   constructor() {
     super()
-    this.state = {
-      data: {},
-      user: ''
-    }
   }
 
-  //I want data to be the object I get back from the API.name
-  //I want user to be the name someone plugs in to the UserInput component to start an API call.
-
-  //It's okay to call the API inside componentDidMount because it is called just one time. 
-  componentDidMount() {
-    this.fetchUser()
-  }
-
-
-  //if previous state is different to the state we're declaring, then update.
-  //Otherwise, don't keep updating. This is equivalent to our dependency array from useEffect.
-
-
-  //STRETCH PROBLEM ---->
-  // componentDidUpdate(prevprops, prevState) {
-  //   if(prevState.user !== this.state.user) {
-  //     this.setState({
-  //       user: ''
-  //     })
-  //     this.fetchUser()
-  //   }
-  // }
-
-  fetchUser = () => {
-    axios.get(`https://api.github.com/users/StephenTanksley`)
-      .then(res => {
-        this.setState({data: res.data})
-      const info = res.data
-      console.log(info)
-      console.log(this.state)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-  }
+//App doesn't need to house state at all. App is just a place for putting the components that actually will
+//utilize state. In this case, we can declare fetchUser, componentDidMount and such inside CardDiv.
+//This eliminates the need to try to pass along that information through props.
 
 
   render() {
@@ -55,10 +17,6 @@ class App extends React.Component {
     return (
       
       <div className="App">
-        {console.log(this.state)}
-        <h1> Github User Cards </h1>
-
-        {/* <UserInput /> */}
 
         <CardDiv />
 
