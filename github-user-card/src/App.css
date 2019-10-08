@@ -31,4 +31,21 @@
 .thumbnail {
   display: flex;
   width: 3.5rem;
+  padding-right: .5rem;
+}
+
+.github-user {
+  display: flex;
+  border: 1px solid black;
+  border-radius: .4rem;
+  width: 15%;
+  padding: .6rem;
+  margin: .6rem;
+}
+
+.followers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: space-between;
 }

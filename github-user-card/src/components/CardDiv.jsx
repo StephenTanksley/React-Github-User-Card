@@ -9,8 +9,8 @@ class CardDiv extends React.Component {
     super() // If I want to receive props, I need super.
     this.state = {
         data: {},
-        user: 'StephenTanksley',
-        followers: {}
+        user: 'stephentanksley',
+        followers: []
       }
     }
 
@@ -36,7 +36,7 @@ class CardDiv extends React.Component {
         axios.get(`https://api.github.com/users/${this.state.user}/followers`)
           .then(res => {
             this.setState({followers: res.data})
-            console.log('user\'s followers', this.state.followers)
+            // console.log('user\'s followers', this.state.followers)
           })
           .catch(err => {
             console.log(err)
@@ -48,12 +48,13 @@ class CardDiv extends React.Component {
   //Otherwise, don't keep updating. This is equivalent to our dependency array from useEffect.
 
   componentDidUpdate(e, prevState) {
-    console.log(prevState.user)
+    // console.log(prevState.user)
     if(prevState.user !== this.state.user) {
         this.setState({
             user: e.target.value
             })
         this.fetchUser()
+        this.fetchFollowers()
         }
     }
 
@@ -108,11 +109,16 @@ class CardDiv extends React.Component {
                 <p> Bio: {this.state.data.bio} </p>
                
             </div>
-
            
             </Container>
-            <Container>
-                <Card />
+            <Container className="followers-container">
+                {this.state.followers.map((item, index) => {
+                    return(
+                        <Card
+                            item={item}
+                            key={index} />
+                    )
+                })}
                 
             </Container>
         </>
